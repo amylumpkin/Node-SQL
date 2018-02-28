@@ -1,0 +1,23 @@
+{
+  "name": "node-sql",
+  "version": "1.0.0",
+  "description": "The goal of this project is to create an Amazon-like storefront with Node.js and SQL. The app will take in orders from customers and deplete stock from the store's inventory.",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amylumpkin/Node-SQL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amylumpkin/Node-SQL/issues"
+  },
+  "homepage": "https://github.com/amylumpkin/Node-SQL#readme",
+  "dependencies": {
+    "inquirer": "^5.1.0",
+    "mysql": "^2.15.0"
+  }
+}

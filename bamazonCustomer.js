@@ -6,14 +6,15 @@ const mysql = require("mysql");
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
-    user: "root",
-    password: " ",
+    user: "amy",
+    password: "Password",
     database: "bamazon_db"
 });
 
 //now need connection execution
 connection.connect(function(err) {
     if (err) throw err;
+    
     start();
 });
 
@@ -51,13 +52,32 @@ function questions(){
             message: "How many units do you want to buy?"
         }
     
-    ])
-    })
-};
-   // .then(function(answer){
-        //if answer is a valid id number, continue to q 2)
+    ]).then(function(answer){
+        //console.log("Your Order: ", answer);
 
-        // if quantitly is valid number, return product name, how many they want to order and the total price
+        var userId = answer.id;
+        console.log("Chosen Item ID: ", userId);
+
+        var userQuantity = answer.quantity;
+        console.log("Quantity Requested: ", userQuantity, "\n");
+
+        connection.query("SELECT * FROM products WHERE ?", [{ id: answer.id }], function(err,results){
+            if (err) throw err;
+            var currentQuantity = results[0].quantity;
+            console.log("Current Quantity in Stock: ", currentQuantity);
+            var price = results[0].price;
+            var remainingQuantity = currentQuantity - answer.quantity;
+            console.log("Remaining quantity now in stock: ", remainingQuantity);
+        })
+    })
+})
+
+}
+
+//need to make it update the database
+//need to give the total price to the user
+
+
 
         
-        //else 'not a valid id number'
+      

@@ -6,8 +6,8 @@ const mysql = require("mysql");
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
-    user: "amy",
-    password: "Password",
+    user: "",
+    password: "",
     database: "bamazon_db"
 });
 
